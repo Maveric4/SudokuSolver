@@ -69,6 +69,22 @@ def recognize_grid(model, img):
     return grid
 
 
+def draw_solved_grid(model, img, solved_sudoku):
+    solved_img = deepcopy(cv2.resize(img, (int(img.shape[1] / RESCALE), int(img.shape[0] / RESCALE))))
+    bin_img, joints = get_joints(img)
+    cell_height, cell_width, min_pt, max_pt = find_cell_param(joints)
+    for x in range(-1, 8):
+        for y in range(-1, 8):
+            roi = bin_img[int(min_pt[1]+cell_width*x):int(min_pt[1]+cell_width*(x+1)),
+                          int(min_pt[0]+cell_height*y):int(min_pt[0]+cell_height*(y+1))]
+            alpha = 0.1
+            roi = roi[int(roi.shape[1]*alpha):int(roi.shape[1]*(1-alpha)), int(roi.shape[0]*alpha):int(roi.shape[0]*(1-alpha))]
+            if utils.predict_digit(model, roi) == 0:
+                pt = (int((min_pt[0] + cell_height * y + min_pt[0] + cell_height * (y + 1))/2) - 5, int((min_pt[1] + cell_width * x + min_pt[1] + cell_width * (x + 1))/2)+8)
+                cv2.putText(solved_img, str(solved_sudoku[x+1][y+1]), pt, cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 0, 255), 2)
+    return solved_img
+
+
 def main():
     model = utils.load_mnist_model()
     img = cv2.imread("./SudokuOnline/puzzle1.jpg")

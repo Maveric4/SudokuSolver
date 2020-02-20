@@ -54,7 +54,7 @@ def solve_recursion():
 def main():
     global sudoku_grid, counter, solutions
     model = utils.load_mnist_model()
-    img = cv2.imread("./SudokuOnline/puzzle1.jpg")
+    img = cv2.imread("./SudokuOnline/puzzle4.jpg")
 
     sudoku_grid = grid.recognize_grid(model, img)
 
@@ -62,7 +62,12 @@ def main():
     print("There are {} possible solutions".format(counter))
     if len(solutions) > 0:
         print("Random solution:")
-        print(np.matrix(solutions[randint(0, counter - 1)]))
+        solved_grid = solutions[randint(0, counter - 1)]
+        print(np.matrix(solved_grid))
+
+        img_solved = grid.draw_solved_grid(model, img, solved_grid)
+        cv2.imshow("Solved sudoku", img_solved)
+        cv2.waitKey(0)
 
 
 if __name__ == "__main__":
