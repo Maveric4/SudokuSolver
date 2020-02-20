@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import tensorflow
 
+
 def standarize_digit_img_to_model_input(img, size):
     if isinstance(img, str):
         img = cv2.imread(img)

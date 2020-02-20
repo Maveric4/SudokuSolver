@@ -66,6 +66,7 @@ def main():
         print(np.matrix(solved_grid))
 
         img_solved = grid.draw_solved_grid(model, img, solved_grid)
+        cv2.imwrite("./results/result4.jpg", img_solved)
         cv2.imshow("Solved sudoku", img_solved)
         cv2.waitKey(0)
 
