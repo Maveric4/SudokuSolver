@@ -22,11 +22,17 @@ def prepare_to_predict(img):
 
 def predict_digit(model, img):
     digit_img = standarize_digit_img_to_model_input(img, 28)
-    bin_digit_img = binarize_img(digit_img)
+    if len(img.shape) == 3:
+        bin_digit_img = binarize_img(digit_img)
+    else:
+        bin_digit_img = digit_img
     img = prepare_to_predict(bin_digit_img)
     prob_predictions = model.predict(img)
-    prediction = [(np.where(item == np.amax(item)))[0][0] for item in prob_predictions]
-    return prediction[0]
+    if np.any(prob_predictions > 0.7):
+        prediction = [(np.where(item == np.amax(item)))[0][0] for item in prob_predictions]
+        return prediction[0]
+    else:
+        return 0
 
 
 def load_model(model_path):

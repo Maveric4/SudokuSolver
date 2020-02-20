@@ -4,6 +4,7 @@ test/
 logs/
 models/
 img/
+SudokuOnline/
 
 
 # Byte-compiled / optimized / DLL files
