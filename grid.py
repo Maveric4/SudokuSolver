@@ -34,7 +34,8 @@ def get_joints(img):
     # retval = cv2.getPerspectiveTransform(img) TO DO  https://blog.ayoungprogrammer.com/2013/03/tutorial-creating-multiple-choice.html/
     img_gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
     bin_img = cv2.adaptiveThreshold(cv2.bitwise_not(img_gray), 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 15, -2)
-
+    # cv2.imshow("Bin: ", bin_img)
+    # cv2.waitKey(0)
     scale = 20
     horizontal_size = bin_img.shape[0] // scale
     horizontal_structure = cv2.getStructuringElement(cv2.MORPH_RECT, (horizontal_size, 1))

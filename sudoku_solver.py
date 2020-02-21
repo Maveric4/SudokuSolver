@@ -17,6 +17,7 @@ sudoku_grid = [[5, 3, 0, 0, 7, 0, 0, 0, 0],
             [0, 0, 0, 0, 8, 0, 0, 0, 9]]
 counter = 0
 solutions = []
+recur_cnt = 0
 
 
 def is_possible(y, x, n):
@@ -37,7 +38,10 @@ def is_possible(y, x, n):
 
 
 def solve_recursion():
-    global sudoku_grid, counter, solutions
+    global sudoku_grid, counter, solutions, recur_cnt
+    recur_cnt += 1
+    if recur_cnt > 10**5:
+        return
     for y in range(9):
         for x in range(9):
             if sudoku_grid[y][x] == 0:
@@ -54,11 +58,12 @@ def solve_recursion():
 def main():
     global sudoku_grid, counter, solutions
     model = utils.load_mnist_model()
-    img = cv2.imread("./SudokuOnline/puzzle4.jpg")
+    img = cv2.imread("./SudokuOnline/puzzle1.jpg")
 
     sudoku_grid = grid.recognize_grid(model, img)
 
     solve_recursion()
+    print("Number or recurrent function invocations: {}".format(recur_cnt))
     print("There are {} possible solutions".format(counter))
     if len(solutions) > 0:
         print("Random solution:")
@@ -66,7 +71,7 @@ def main():
         print(np.matrix(solved_grid))
 
         img_solved = grid.draw_solved_grid(model, img, solved_grid)
-        cv2.imwrite("./results/result4.jpg", img_solved)
+        cv2.imwrite("./results/result1.jpg", img_solved)
         cv2.imshow("Solved sudoku", img_solved)
         cv2.waitKey(0)
 
