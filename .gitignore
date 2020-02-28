@@ -6,6 +6,9 @@ models/
 img/
 SudokuOnline/
 result.jpg
+mqtt_com/
+results/
+
 
 
 # Byte-compiled / optimized / DLL files
