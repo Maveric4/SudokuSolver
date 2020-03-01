@@ -105,8 +105,8 @@ def send_solution(client):
     with open("./results/" + IMG_NAME, "rb") as f:
         fileContent = f.read()
         byteArrayPhoto = bytearray(fileContent)
-        client.publish("sudoku/solution_photo", byteArrayPhoto)
-        client.publish("sudoku/solution_grid", solutions[randint(0, counter - 1)])
+    client.publish("sudoku/solution/photo", byteArrayPhoto)
+    client.publish("sudoku/solution/grid", str(solutions[randint(0, counter - 1)]))
 
 
 def main():
