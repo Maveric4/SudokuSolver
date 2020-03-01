@@ -35,6 +35,7 @@ def on_message(client, userdata, msg):
         with open('./mqtt_com/' + IMG_NAME, "wb") as f:
             f.write(msg.payload)
         solve_sudoku()
+        send_solution(client)
     if msg.payload.decode() == "End":
         print("Okey! I'm disconnecting :)")
         client.disconnect()
@@ -97,6 +98,15 @@ def solve_sudoku():
         cv2.imwrite("./results/" + IMG_NAME, img_solved)
         # cv2.imshow("Solved sudoku", img_solved)
         # cv2.waitKey(0)
+
+
+def send_solution(client):
+    global solutions, counter
+    with open("./results/" + IMG_NAME, "rb") as f:
+        fileContent = f.read()
+        byteArrayPhoto = bytearray(fileContent)
+        client.publish("sudoku/solution_photo", byteArrayPhoto)
+        client.publish("sudoku/solution_grid", solutions[randint(0, counter - 1)])
 
 
 def main():
