@@ -30,7 +30,7 @@ namespace SudokuSolver
 
             string clientId = Guid.NewGuid().ToString();
             client.Connect(clientId);
-            client.Subscribe(new string[] { "sudoku/msg" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
+            client.Subscribe(new string[] { "sudoku/#" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
         }
 
         void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)

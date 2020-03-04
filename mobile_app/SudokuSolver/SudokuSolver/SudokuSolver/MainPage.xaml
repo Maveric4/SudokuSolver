@@ -5,11 +5,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="SudokuSolver.MainPage">
+
     <StackLayout>
         <Label Text="Welcome to SudokuSolver app!" 
                HorizontalOptions="Center"
                Margin="30"
                HeightRequest="30" />
+
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="40" />
@@ -20,47 +22,43 @@
                 <ColumnDefinition Width="0.20*" />
                 <ColumnDefinition Width="0.75*" />
             </Grid.ColumnDefinitions>
-            <!--<Label Text="Top Left" Grid.Row="0" Grid.Column="1" />
-            <Label Text="Top Right" Grid.Row="0" Grid.Column="2" />
-            <Label Text="Bottom Left" Grid.Row="1" Grid.Column="1" />
-            <Label Text="Bottom Right" Grid.Row="1" Grid.Column="2" />-->
-            <!--HorizontalOptions="Center"-->
 
             <Label x:Name="LabelTopicInfo"
-                   Text="Topic:" 
-                   HorizontalTextAlignment="Start"
-                   HeightRequest="30" 
-                   FontSize="14" 
-                   FontAttributes="Bold" 
-                   Grid.Row="0" Grid.Column="1" />
+                    Text="Topic:" 
+                    HorizontalTextAlignment="Start"
+                    HeightRequest="30" 
+                    FontSize="14" 
+                    FontAttributes="Bold" 
+                    Grid.Row="0" Grid.Column="1" />
 
             <Label x:Name="LabelTopic"
-                   Text="" 
-                   HorizontalTextAlignment="Start"
-                   HeightRequest="40" 
-                   Grid.Row="0" Grid.Column="2" />
+                    Text="" 
+                    HorizontalTextAlignment="Start"
+                    HeightRequest="40" 
+                    Grid.Row="0" Grid.Column="2" />
 
             <Label x:Name="LabelMsgInfo"
-                   Text="Message:" 
-                   HorizontalTextAlignment="Start"
-                   HeightRequest="30" 
-                   FontSize="14" 
-                   FontAttributes="Bold" 
-                   Grid.Row="1" Grid.Column="1" />
+                    Text="Message:" 
+                    HorizontalTextAlignment="Start"
+                    HeightRequest="30" 
+                    FontSize="14" 
+                    FontAttributes="Bold" 
+                    Grid.Row="1" Grid.Column="1" />
 
             <Label x:Name="LabelMsg"
-                   Text="" 
-                   HorizontalTextAlignment="Start"
-                   HeightRequest="20" 
-                   Grid.Row="1" Grid.Column="2" />
-
+                    Text="" 
+                    HorizontalTextAlignment="Start"
+                    HeightRequest="20" 
+                    Grid.Row="1" Grid.Column="2" />
         </Grid>
         <Button Text="Show message"
                     Clicked="OnShowMsgButtonClicked" />
     </StackLayout>
+</ContentPage>
 
-            <!--<StackLayout>-->
-    <!--<Label Text="Welcome to SudokuSolver app!" 
+
+<!--<StackLayout>-->
+<!--<Label Text="Welcome to SudokuSolver app!" 
                HorizontalOptions="Center"
                Margin="30"
                HeightRequest="30" />
@@ -91,10 +89,10 @@
 
     <Button Text="Show message"
                     Clicked="OnShowMsgButtonClicked" />-->
-    <!--</StackLayout>-->
+<!--</StackLayout>-->
 
-
-
-
-</ContentPage>
-
+<!--<Label Text="Top Left" Grid.Row="0" Grid.Column="1" />
+            <Label Text="Top Right" Grid.Row="0" Grid.Column="2" />
+            <Label Text="Bottom Left" Grid.Row="1" Grid.Column="1" />
+            <Label Text="Bottom Right" Grid.Row="1" Grid.Column="2" />-->
+<!--HorizontalOptions="Center"-->
