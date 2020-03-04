@@ -13,7 +13,7 @@ mobile_app/SudokuSolver/.vs/
 mobile_app/SudokuSolver/SudokuSolver/SudokuSolver.Android/
 mobile_app/SudokuSolver/SudokuSolver/SudokuSolver/bin/
 mobile_app/SudokuSolver/SudokuSolver/SudokuSolver/obj/
-
+mobile_app/SudokuSolver/SudokuSolver/SudokuSolver.iOS/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
