@@ -5,6 +5,8 @@ import cv2
 import utils
 import grid
 import paho.mqtt.client as mqtt
+import io
+from PIL import Image
 
 # Global variables
 BROKER_ADRESS = "192.168.9.201"
@@ -32,8 +34,15 @@ def on_message(client, userdata, msg):
     global counter
     counter = 0
     if msg.topic == "sudoku/photo":
-        with open('./mqtt_com/' + IMG_NAME, "wb") as f:
-            f.write(msg.payload)
+        try:
+            stream = io.BytesIO(msg.payload)
+            open_cv_image = np.array(Image.open(stream).convert('RGB'))
+            # Convert RGB to BGR
+            open_cv_image = open_cv_image[:, :, ::-1].copy()
+            cv2.imwrite('./mqtt_com/' + IMG_NAME, open_cv_image)
+        except Exception as e:
+            print("Exception: ")
+            print(e)
         solve_sudoku()
         send_solution(client)
     if msg.payload.decode() == "End":
@@ -106,7 +115,7 @@ def send_solution(client):
         fileContent = f.read()
         byteArrayPhoto = bytearray(fileContent)
     client.publish("sudoku/solution/photo", byteArrayPhoto)
-    client.publish("sudoku/solution/grid", str(solutions[randint(0, counter - 1)]))
+    # client.publish("sudoku/solution/grid", str(solutions[randint(0, counter - 1)]))
 
 
 def main():

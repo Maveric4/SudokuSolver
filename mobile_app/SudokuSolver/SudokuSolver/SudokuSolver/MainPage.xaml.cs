@@ -39,8 +39,17 @@ namespace SudokuSolver
 
         void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
-            mqttMSG = System.Text.Encoding.UTF8.GetString(e.Message);
             topic = e.Topic;
+            if(topic == "sudoku/solution/photo")
+            {
+                SolutionImage.Source = ImageSource.FromStream(() => new MemoryStream(e.Message));
+                SolutionLabel.IsVisible = true;
+                mqttMSG = "Photo with solution";
+            }
+            else
+            {
+                mqttMSG = System.Text.Encoding.UTF8.GetString(e.Message);
+            }
         }
 
         void OnShowMsgButtonClicked(object sender, EventArgs e)

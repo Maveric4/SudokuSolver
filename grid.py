@@ -49,6 +49,8 @@ def get_joints(img):
 
     # mask = img_dilated_vertical + img_dilated_horizontal
     joints = cv2.bitwise_and(img_dilated_horizontal, img_dilated_vertical)
+    # cv2.imshow("joints: ", joints)
+    # cv2.waitKey(0)
     return bin_img, joints
 
 

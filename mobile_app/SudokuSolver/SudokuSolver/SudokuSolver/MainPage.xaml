@@ -67,7 +67,7 @@
                         Grid.Row="0" Grid.Column="1"/>
             </Grid>
 
-            
+
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="100" />
@@ -93,12 +93,8 @@
                 <Button Text="Pick photo"
                         Clicked="OnPickPhotoButtonClicked" 
                         Grid.Row="1" Grid.Column="2" />
-
-
-
             </Grid>
-                    
-        
+
             <Label x:Name="PathLabel"
                    FontSize="14"
                    TextColor="Black" 
@@ -117,6 +113,33 @@
                 <Button Text="Send photo"
                         Clicked="OnSendPhotoButtonClicked" 
                         Grid.Row="0" Grid.Column="1"/>
+            </Grid>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="400" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.05*" />
+                    <ColumnDefinition Width="0.9*" />
+                    <!--<ColumnDefinition Width="0.45*" />-->
+                    <ColumnDefinition Width="0.05*" />
+                </Grid.ColumnDefinitions>
+
+                <!--<Image  x:Name="GridImage" 
+                        Grid.Row="2" Grid.Column="1" />-->
+
+                <Label x:Name="SolutionLabel"
+                       Text="Solution"
+                       FontSize="20"
+                       TextColor="Black"
+                       HorizontalOptions="Center"
+                       Grid.Row="0" Grid.Column="1" 
+                       IsVisible="False" />
+
+                <Image  x:Name="SolutionImage" 
+                        Grid.Row="1" Grid.Column="1" />
             </Grid>
 
         </StackLayout>
