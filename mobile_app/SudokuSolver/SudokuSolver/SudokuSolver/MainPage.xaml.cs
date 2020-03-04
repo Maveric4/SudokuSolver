@@ -68,7 +68,32 @@ namespace SudokuSolver
 
             PathLabel.Text = file.AlbumPath;
 
-            MainImage.Source = ImageSource.FromStream(() =>
+            TakenImage.Source = ImageSource.FromStream(() =>
+            {
+                var stream = file.GetStream();
+                file.Dispose();
+                return stream;
+            });
+        }
+
+        private async void OnPickPhotoButtonClicked(object sender, EventArgs e)
+        {
+            await CrossMedia.Current.Initialize();
+
+            if (!CrossMedia.Current.IsPickPhotoSupported)
+            {
+                await DisplayAlert("Sorry. ", "Pick photo is not supported!", "OK");
+                return;
+            }
+
+            var file = await CrossMedia.Current.PickPhotoAsync();
+
+            if (file == null)
+                return;
+
+            PathLabel.Text = "Photo path: " + file.Path;
+
+            PickImage.Source = ImageSource.FromStream(() =>
             {
                 var stream = file.GetStream();
                 file.Dispose();

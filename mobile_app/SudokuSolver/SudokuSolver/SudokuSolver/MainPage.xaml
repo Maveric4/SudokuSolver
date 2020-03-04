@@ -5,69 +5,111 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="SudokuSolver.MainPage">
+    <ScrollView>
+        <StackLayout>
+            <Label Text="Welcome to SudokuSolver app!" 
+                   HorizontalOptions="Center"
+                   Margin="30"
+                   HeightRequest="30" />
 
-    <StackLayout>
-        <Label Text="Welcome to SudokuSolver app!" 
-               HorizontalOptions="Center"
-               Margin="30"
-               HeightRequest="30" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.05*" />
+                    <ColumnDefinition Width="0.20*" />
+                    <ColumnDefinition Width="0.75*" />
+                </Grid.ColumnDefinitions>
 
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.05*" />
-                <ColumnDefinition Width="0.20*" />
-                <ColumnDefinition Width="0.75*" />
-            </Grid.ColumnDefinitions>
+                <Label x:Name="LabelTopicInfo"
+                        Text="Topic:" 
+                        HorizontalTextAlignment="Start"
+                        HeightRequest="30" 
+                        FontSize="14" 
+                        FontAttributes="Bold" 
+                        Grid.Row="0" Grid.Column="1" />
 
-            <Label x:Name="LabelTopicInfo"
-                    Text="Topic:" 
-                    HorizontalTextAlignment="Start"
-                    HeightRequest="30" 
-                    FontSize="14" 
-                    FontAttributes="Bold" 
-                    Grid.Row="0" Grid.Column="1" />
+                <Label x:Name="LabelTopic"
+                        Text="" 
+                        HorizontalTextAlignment="Start"
+                        HeightRequest="40" 
+                        Grid.Row="0" Grid.Column="2" />
 
-            <Label x:Name="LabelTopic"
-                    Text="" 
-                    HorizontalTextAlignment="Start"
-                    HeightRequest="40" 
-                    Grid.Row="0" Grid.Column="2" />
+                <Label x:Name="LabelMsgInfo"
+                        Text="Message:" 
+                        HorizontalTextAlignment="Start"
+                        HeightRequest="30" 
+                        FontSize="14" 
+                        FontAttributes="Bold" 
+                        Grid.Row="1" Grid.Column="1" />
 
-            <Label x:Name="LabelMsgInfo"
-                    Text="Message:" 
-                    HorizontalTextAlignment="Start"
-                    HeightRequest="30" 
-                    FontSize="14" 
-                    FontAttributes="Bold" 
-                    Grid.Row="1" Grid.Column="1" />
+                <Label x:Name="LabelMsg"
+                        Text="" 
+                        HorizontalTextAlignment="Start"
+                        HeightRequest="20" 
+                        Grid.Row="1" Grid.Column="2" />
+            </Grid>
 
-            <Label x:Name="LabelMsg"
-                    Text="" 
-                    HorizontalTextAlignment="Start"
-                    HeightRequest="20" 
-                    Grid.Row="1" Grid.Column="2" />
-        </Grid>
-        <Button Text="Show message"
-                    Clicked="OnShowMsgButtonClicked" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.05*" />
+                    <ColumnDefinition Width="0.9*" />
+                    <ColumnDefinition Width="0.05*" />
+                </Grid.ColumnDefinitions>
+                
+                <Button Text="Show message"
+                        Clicked="OnShowMsgButtonClicked" 
+                        Grid.Row="0" Grid.Column="1"/>
+            </Grid>
+
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.05*" />
+                    <ColumnDefinition Width="0.45*" />
+                    <ColumnDefinition Width="0.45*" />
+                    <ColumnDefinition Width="0.05*" />
+                </Grid.ColumnDefinitions>
+
+                <Image  x:Name="TakenImage" 
+                        Grid.Row="0" Grid.Column="1" />
+
+                <Image  x:Name="PickImage" 
+                        Grid.Row="0" Grid.Column="2" />
+
+                <Button Text="Take photo"
+                        Clicked="OnTakePhotoButtonClicked" 
+                        Grid.Row="1" Grid.Column="1" />
+
+                <Button Text="Pick photo"
+                        Clicked="OnPickPhotoButtonClicked" 
+                        Grid.Row="1" Grid.Column="2" />
+
+
+
+            </Grid>
+                    
         
-        <Button Text="Take photo"
-                    Clicked="OnTakePhotoButtonClicked" />
+            <Label x:Name="PathLabel"
+                   FontSize="14"
+                   TextColor="Black" 
+                   Margin="15"/>
 
-        <Image x:Name="MainImage" />
-        
-        <Label x:Name="PathLabel"
-               FontSize="14"
-               TextColor="Black" />
-
-    </StackLayout>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
 
 
-<!--<StackLayout>-->
+    <!--<StackLayout>-->
 <!--<Label Text="Welcome to SudokuSolver app!" 
                HorizontalOptions="Center"
                Margin="30"
