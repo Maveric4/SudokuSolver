@@ -9,7 +9,10 @@ result.jpg
 mqtt_com/
 results/
 mobile_app/HelloWorldHuawei/
-
+mobile_app/SudokuSolver/.vs/
+mobile_app/SudokuSolver/SudokuSolver/SudokuSolver.Android/
+mobile_app/SudokuSolver/SudokuSolver/SudokuSolver/bin/
+mobile_app/SudokuSolver/SudokuSolver/SudokuSolver/obj/
 
 
 # Byte-compiled / optimized / DLL files

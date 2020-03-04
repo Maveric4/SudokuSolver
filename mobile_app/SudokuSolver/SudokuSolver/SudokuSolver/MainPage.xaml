@@ -5,77 +5,96 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="SudokuSolver.MainPage">
-
     <StackLayout>
-        <!-- Place new controls here -->
         <Label Text="Welcome to SudokuSolver app!" 
                HorizontalOptions="Center"
                Margin="30"
                HeightRequest="30" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.05*" />
+                <ColumnDefinition Width="0.20*" />
+                <ColumnDefinition Width="0.75*" />
+            </Grid.ColumnDefinitions>
+            <!--<Label Text="Top Left" Grid.Row="0" Grid.Column="1" />
+            <Label Text="Top Right" Grid.Row="0" Grid.Column="2" />
+            <Label Text="Bottom Left" Grid.Row="1" Grid.Column="1" />
+            <Label Text="Bottom Right" Grid.Row="1" Grid.Column="2" />-->
+            <!--HorizontalOptions="Center"-->
 
-        <Label x:Name="LabelTopicInfo"
+            <Label x:Name="LabelTopicInfo"
+                   Text="Topic:" 
+                   HorizontalTextAlignment="Start"
+                   HeightRequest="30" 
+                   FontSize="14" 
+                   FontAttributes="Bold" 
+                   Grid.Row="0" Grid.Column="1" />
+
+            <Label x:Name="LabelTopic"
+                   Text="" 
+                   HorizontalTextAlignment="Start"
+                   HeightRequest="40" 
+                   Grid.Row="0" Grid.Column="2" />
+
+            <Label x:Name="LabelMsgInfo"
+                   Text="Message:" 
+                   HorizontalTextAlignment="Start"
+                   HeightRequest="30" 
+                   FontSize="14" 
+                   FontAttributes="Bold" 
+                   Grid.Row="1" Grid.Column="1" />
+
+            <Label x:Name="LabelMsg"
+                   Text="" 
+                   HorizontalTextAlignment="Start"
+                   HeightRequest="20" 
+                   Grid.Row="1" Grid.Column="2" />
+
+        </Grid>
+        <Button Text="Show message"
+                    Clicked="OnShowMsgButtonClicked" />
+    </StackLayout>
+
+            <!--<StackLayout>-->
+    <!--<Label Text="Welcome to SudokuSolver app!" 
+               HorizontalOptions="Center"
+               Margin="30"
+               HeightRequest="30" />
+
+    <Label x:Name="LabelTopicInfo"
                Text="Topic:" 
                HorizontalOptions="Center"
                HeightRequest="30" 
                FontSize="14" 
                FontAttributes="Bold" />
-        
-        <Label x:Name="LabelTopic"
+
+    <Label x:Name="LabelTopic"
                Text="" 
                HorizontalOptions="Center"
                HeightRequest="40" />
 
-        <Label x:Name="LabelMsgInfo"
+    <Label x:Name="LabelMsgInfo"
                Text="Message:" 
                HorizontalOptions="Center"
                HeightRequest="30" 
                FontSize="14" 
                FontAttributes="Bold" />
 
-        <Label x:Name="LabelMsg"
+    <Label x:Name="LabelMsg"
                Text="" 
                HorizontalOptions="Center"
                HeightRequest="20" />
 
-        <Button Text="Show message"
-                    Clicked="OnShowMsgButtonClicked" />
-    </StackLayout>
+    <Button Text="Show message"
+                    Clicked="OnShowMsgButtonClicked" />-->
+    <!--</StackLayout>-->
+
+
+
 
 </ContentPage>
 
-<!--<ListView x:Name="ListView_Pets">
-    <ListView.ItemTemplate>
-        <DataTemplate>
-            <ViewCell>
-                <Grid VerticalOptions="Center">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Label Grid.Row="0"
-                           Grid.Column="0"
-                           FontSize="10"
-                           Text="{Binding StoreName}"
-                           VerticalTextAlignment="Center" />
-                    <Label Grid.Row="0"
-                           Grid.Column="1"
-                           FontSize="14"
-                           Text="{Binding Description}"
-                           VerticalTextAlignment="Center" />
-                    <Label Grid.Row="0"
-                           Grid.Column="2"
-                           FontSize="8"
-                           Text="{Binding Street}"
-                           VerticalTextAlignment="Center" />
-                    <Label Grid.Row="0"
-                           Grid.Column="3"
-                           FontSize="16"
-                           Text="{Binding State}"
-                           VerticalTextAlignment="Center" />
-                </Grid>
-            </ViewCell>
-        </DataTemplate>
-    </ListView.ItemTemplate>
-</ListView>-->
