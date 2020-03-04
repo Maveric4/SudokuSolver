@@ -1,0 +1,13 @@
+C:\Users\DanielGacek\Documents\Repos\SudokuSolver\mobile_app\SudokuSolver\SudokuSolver\SudokuSolver\bin\Debug\netstandard2.0\SudokuSolver.deps.json
+C:\Users\DanielGacek\Documents\Repos\SudokuSolver\mobile_app\SudokuSolver\SudokuSolver\SudokuSolver\bin\Debug\netstandard2.0\SudokuSolver.dll
+C:\Users\DanielGacek\Documents\Repos\SudokuSolver\mobile_app\SudokuSolver\SudokuSolver\SudokuSolver\bin\Debug\netstandard2.0\SudokuSolver.pdb
+C:\Users\DanielGacek\Documents\Repos\SudokuSolver\mobile_app\SudokuSolver\SudokuSolver\SudokuSolver\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\DanielGacek\Documents\Repos\SudokuSolver\mobile_app\SudokuSolver\SudokuSolver\SudokuSolver\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\DanielGacek\Documents\Repos\SudokuSolver\mobile_app\SudokuSolver\SudokuSolver\SudokuSolver\obj\Debug\netstandard2.0\SudokuSolver.csproj.CoreCompileInputs.cache
+C:\Users\DanielGacek\Documents\Repos\SudokuSolver\mobile_app\SudokuSolver\SudokuSolver\SudokuSolver\obj\Debug\netstandard2.0\SudokuSolver.AssemblyInfoInputs.cache
+C:\Users\DanielGacek\Documents\Repos\SudokuSolver\mobile_app\SudokuSolver\SudokuSolver\SudokuSolver\obj\Debug\netstandard2.0\SudokuSolver.AssemblyInfo.cs
+C:\Users\DanielGacek\Documents\Repos\SudokuSolver\mobile_app\SudokuSolver\SudokuSolver\SudokuSolver\obj\Debug\netstandard2.0\SudokuSolver.dll
+C:\Users\DanielGacek\Documents\Repos\SudokuSolver\mobile_app\SudokuSolver\SudokuSolver\SudokuSolver\obj\Debug\netstandard2.0\SudokuSolver.pdb
+C:\Users\DanielGacek\Documents\Repos\SudokuSolver\mobile_app\SudokuSolver\SudokuSolver\SudokuSolver\bin\Debug\netstandard2.0\M2Mqtt.Net.dll
+C:\Users\DanielGacek\Documents\Repos\SudokuSolver\mobile_app\SudokuSolver\SudokuSolver\SudokuSolver\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\DanielGacek\Documents\Repos\SudokuSolver\mobile_app\SudokuSolver\SudokuSolver\SudokuSolver\obj\Debug\netstandard2.0\SudokuSolver.csproj.CopyComplete
