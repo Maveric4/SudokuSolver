@@ -8,6 +8,8 @@ using Xamarin.Forms;
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
 using System.Net;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
 
 namespace SudokuSolver
 {
@@ -31,6 +33,7 @@ namespace SudokuSolver
             string clientId = Guid.NewGuid().ToString();
             client.Connect(clientId);
             client.Subscribe(new string[] { "sudoku/#" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
+
         }
 
         void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
@@ -43,6 +46,34 @@ namespace SudokuSolver
         {
             LabelTopic.Text = topic;
             LabelMsg.Text = mqttMSG;
+        }
+
+        private async void OnTakePhotoButtonClicked(object sender, EventArgs e)
+        {
+            await CrossMedia.Current.Initialize();
+
+            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+            {
+                await DisplayAlert("No camera", ":( No camera available.", "OK");
+                return;
+            }
+
+            var file = await CrossMedia.Current.TakePhotoAsync(
+                new StoreCameraMediaOptions
+                {
+                    SaveToAlbum = true,
+                });
+            if (file == null)
+                return;
+
+            PathLabel.Text = file.AlbumPath;
+
+            MainImage.Source = ImageSource.FromStream(() =>
+            {
+                var stream = file.GetStream();
+                file.Dispose();
+                return stream;
+            });
         }
     }
 }

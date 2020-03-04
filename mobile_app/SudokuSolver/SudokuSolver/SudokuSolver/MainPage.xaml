@@ -53,6 +53,16 @@
         </Grid>
         <Button Text="Show message"
                     Clicked="OnShowMsgButtonClicked" />
+        
+        <Button Text="Take photo"
+                    Clicked="OnTakePhotoButtonClicked" />
+
+        <Image x:Name="MainImage" />
+        
+        <Label x:Name="PathLabel"
+               FontSize="14"
+               TextColor="Black" />
+
     </StackLayout>
 </ContentPage>
 
