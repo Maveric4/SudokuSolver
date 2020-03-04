@@ -25,7 +25,7 @@ IMG_NAME = 'puzzle1.jpg'
 
 def on_connect(client, userdata, flags, rc):
     print("Connected to broker with result code " + str(rc))
-    client.subscribe("sudoku/photo")
+    client.subscribe("sudoku/#")
 
 
 def on_message(client, userdata, msg):
