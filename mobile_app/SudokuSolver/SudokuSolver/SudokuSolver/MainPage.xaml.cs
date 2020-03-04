@@ -10,6 +10,7 @@ using uPLibrary.Networking.M2Mqtt.Messages;
 using System.Net;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
+using System.IO;
 
 namespace SudokuSolver
 {
@@ -47,6 +48,36 @@ namespace SudokuSolver
             LabelTopic.Text = topic;
             LabelMsg.Text = mqttMSG;
         }
+
+        private async void OnSendPhotoButtonClicked(object sender, EventArgs e)
+        {
+            //client.Publish("sudoku/photo", Encoding.ASCII.GetBytes("should be photo"));
+            await CrossMedia.Current.Initialize();
+
+            if (!CrossMedia.Current.IsPickPhotoSupported)
+            {
+                await DisplayAlert("Sorry. ", "Pick photo is not supported!", "OK");
+                return;
+            }
+
+            var file = await CrossMedia.Current.PickPhotoAsync();
+
+            if (file == null)
+                return;
+
+            byte[] imageArray = null;
+            if (file != null)
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    var stream = file.GetStream();
+                    stream.CopyTo(ms);
+                    imageArray = ms.ToArray();
+                }
+            }
+            client.Publish("sudoku/photo", imageArray);
+        }
+
 
         private async void OnTakePhotoButtonClicked(object sender, EventArgs e)
         {
