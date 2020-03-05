@@ -103,6 +103,7 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.05*" />
@@ -113,6 +114,12 @@
                 <Button Text="Send photo"
                         Clicked="OnSendPhotoButtonClicked" 
                         Grid.Row="0" Grid.Column="1"/>
+                
+                <Button x:Name="ShowSolutionButton"
+                        Text="Show solution"
+                        Clicked="OnShowSolutionButtonClicked" 
+                        Grid.Row="1" Grid.Column="1" 
+                        IsEnabled="False" />
             </Grid>
 
             <Grid>

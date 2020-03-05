@@ -14,37 +14,44 @@ using System.IO;
 
 namespace SudokuSolver
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
+
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
-        MqttClient client;
+        private MqttClient client;
         string mqttMSG = string.Empty;
         string topic = string.Empty;
-        string MQTT_BROKER_ADDRESS = "192.168.9.201";
         public MainPage()
         {
             InitializeComponent();
-            client = new MqttClient(IPAddress.Parse(MQTT_BROKER_ADDRESS));
+            if (Application.Current.Properties.ContainsKey("client"))
+            {
+                client = Application.Current.Properties["client"] as MqttClient;
 
-            // register to message received 
-            client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
+                // register to message received 
+                client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
 
-            string clientId = Guid.NewGuid().ToString();
-            client.Connect(clientId);
-            client.Subscribe(new string[] { "sudoku/#" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
-
+                // subscribe to every sudoku topic
+                client.Subscribe(new string[] { "sudoku/#" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
+            }
         }
 
-        void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
+        private void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
             topic = e.Topic;
-            if(topic == "sudoku/solution/photo")
+            if(topic == "sudoku/solution/photo2")
             {
                 SolutionImage.Source = ImageSource.FromStream(() => new MemoryStream(e.Message));
                 SolutionLabel.IsVisible = true;
                 mqttMSG = "Photo with solution";
+            }
+            else if (topic == "sudoku/solution/photo")
+            {
+                Application.Current.Properties["SolvedSudokuImage"] = ImageSource.FromStream(() => new MemoryStream(e.Message));
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    ShowSolutionButton.IsEnabled = true;
+                });
             }
             else
             {
@@ -58,9 +65,14 @@ namespace SudokuSolver
             LabelMsg.Text = mqttMSG;
         }
 
+        void OnShowSolutionButtonClicked(object sender, EventArgs e)
+        {
+            ShowSolutionButton.IsEnabled = false;
+            Navigation.PushAsync(new SolutionPage());
+        }
+
         private async void OnSendPhotoButtonClicked(object sender, EventArgs e)
         {
-            //client.Publish("sudoku/photo", Encoding.ASCII.GetBytes("should be photo"));
             await CrossMedia.Current.Initialize();
 
             if (!CrossMedia.Current.IsPickPhotoSupported)
@@ -86,7 +98,6 @@ namespace SudokuSolver
             }
             client.Publish("sudoku/photo", imageArray);
         }
-
 
         private async void OnTakePhotoButtonClicked(object sender, EventArgs e)
         {

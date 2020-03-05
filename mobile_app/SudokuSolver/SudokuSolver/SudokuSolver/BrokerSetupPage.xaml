@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SudokuSolver.BrokerSetupPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label  Text="Welcome to BrokerSetupPage!"
+                    HorizontalOptions="CenterAndExpand" 
+                    HeightRequest="30" 
+                    Margin="20" />
+
+            <Entry  x:Name="EntryBrokerIP"
+                    Text="192.168.9.201"
+                    HorizontalTextAlignment="Center"
+                    Placeholder="Broker IP address" />
+
+            <Button x:Name="ButtonConnectBroker"
+                    Text="Connect"
+                    HeightRequest="40"
+                    HorizontalOptions="Center" 
+                    Clicked="OnConnectBrokerButtonClicked" />
+            
+            
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
