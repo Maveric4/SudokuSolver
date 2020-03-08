@@ -9,30 +9,27 @@ namespace SudokuSolver
 {
     public partial class App : Application
     {
-        private MqttClient client;
-        private string clientId;
 
         public App()
         {
             InitializeComponent();
-            Application.Current.Properties["BrokerIP"] = "192.168.9.201";
             MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()
         {
             // Handle when your app starts
-            clientId = Guid.NewGuid().ToString();
-            client = new MqttClient(Application.Current.Properties["BrokerIP"] as string);
-            try
-            {
-                client.Connect(clientId);
-                Application.Current.Properties["client"] = client;
-            }
-            catch(Exception e)
-            {
-                MainPage = new NavigationPage(new BrokerSetupPage());
-            }
+            //string clientId = Guid.NewGuid().ToString();
+            //MqttClient client = new MqttClient(Application.Current.Properties["BrokerIP"] as string);
+            //try
+            //{
+            //    client.Connect(clientId);
+            //    MainPage = new NavigationPage(new MainPage());
+            //}
+            //catch(Exception e)
+            //{
+            //    MainPage = new NavigationPage(new BrokerSetupPage());
+            //}
         }
 
         protected override void OnSleep()

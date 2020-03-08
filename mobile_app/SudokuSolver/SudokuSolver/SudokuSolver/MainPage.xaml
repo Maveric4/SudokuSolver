@@ -7,7 +7,7 @@
              x:Class="SudokuSolver.MainPage">
     <ScrollView>
         <StackLayout>
-            <Label Text="Welcome to SudokuSolver app!" 
+            <Label Text="SudokuSolver app" 
                    HorizontalOptions="Center"
                    Margin="30"
                    HeightRequest="30" />
@@ -15,94 +15,7 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40" />
-                    <RowDefinition Height="40" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.05*" />
-                    <ColumnDefinition Width="0.20*" />
-                    <ColumnDefinition Width="0.75*" />
-                </Grid.ColumnDefinitions>
-
-                <Label x:Name="LabelTopicInfo"
-                        Text="Topic:" 
-                        HorizontalTextAlignment="Start"
-                        HeightRequest="30" 
-                        FontSize="14" 
-                        FontAttributes="Bold" 
-                        Grid.Row="0" Grid.Column="1" />
-
-                <Label x:Name="LabelTopic"
-                        Text="" 
-                        HorizontalTextAlignment="Start"
-                        HeightRequest="40" 
-                        Grid.Row="0" Grid.Column="2" />
-
-                <Label x:Name="LabelMsgInfo"
-                        Text="Message:" 
-                        HorizontalTextAlignment="Start"
-                        HeightRequest="30" 
-                        FontSize="14" 
-                        FontAttributes="Bold" 
-                        Grid.Row="1" Grid.Column="1" />
-
-                <Label x:Name="LabelMsg"
-                        Text="" 
-                        HorizontalTextAlignment="Start"
-                        HeightRequest="20" 
-                        Grid.Row="1" Grid.Column="2" />
-            </Grid>
-
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.05*" />
-                    <ColumnDefinition Width="0.9*" />
-                    <ColumnDefinition Width="0.05*" />
-                </Grid.ColumnDefinitions>
-                
-                <Button Text="Show message"
-                        Clicked="OnShowMsgButtonClicked" 
-                        Grid.Row="0" Grid.Column="1"/>
-            </Grid>
-
-
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="100" />
-                    <RowDefinition Height="40" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.05*" />
-                    <ColumnDefinition Width="0.45*" />
-                    <ColumnDefinition Width="0.45*" />
-                    <ColumnDefinition Width="0.05*" />
-                </Grid.ColumnDefinitions>
-
-                <Image  x:Name="TakenImage" 
-                        Grid.Row="0" Grid.Column="1" />
-
-                <Image  x:Name="PickImage" 
-                        Grid.Row="0" Grid.Column="2" />
-
-                <Button Text="Take photo"
-                        Clicked="OnTakePhotoButtonClicked" 
-                        Grid.Row="1" Grid.Column="1" />
-
-                <Button Text="Pick photo"
-                        Clicked="OnPickPhotoButtonClicked" 
-                        Grid.Row="1" Grid.Column="2" />
-            </Grid>
-
-            <Label x:Name="PathLabel"
-                   FontSize="14"
-                   TextColor="Black" 
-                   Margin="15"/>
-
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40" />
+                    <RowDefinition Height="400" />
                     <RowDefinition Height="40" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -114,82 +27,17 @@
                 <Button Text="Send photo"
                         Clicked="OnSendPhotoButtonClicked" 
                         Grid.Row="0" Grid.Column="1"/>
-                
+
+                <Image  x:Name="ImageChosen" 
+                        Grid.Row="1" Grid.Column="1" />
+
                 <Button x:Name="ShowSolutionButton"
                         Text="Show solution"
                         Clicked="OnShowSolutionButtonClicked" 
-                        Grid.Row="1" Grid.Column="1" 
+                        Grid.Row="2" Grid.Column="1" 
                         IsEnabled="False" />
-            </Grid>
-
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="35" />
-                    <RowDefinition Height="400" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.05*" />
-                    <ColumnDefinition Width="0.9*" />
-                    <!--<ColumnDefinition Width="0.45*" />-->
-                    <ColumnDefinition Width="0.05*" />
-                </Grid.ColumnDefinitions>
-
-                <!--<Image  x:Name="GridImage" 
-                        Grid.Row="2" Grid.Column="1" />-->
-
-                <Label x:Name="SolutionLabel"
-                       Text="Solution"
-                       FontSize="20"
-                       TextColor="Black"
-                       HorizontalOptions="Center"
-                       Grid.Row="0" Grid.Column="1" 
-                       IsVisible="False" />
-
-                <Image  x:Name="SolutionImage" 
-                        Grid.Row="1" Grid.Column="1" />
             </Grid>
 
         </StackLayout>
     </ScrollView>
 </ContentPage>
-
-
-    <!--<StackLayout>-->
-<!--<Label Text="Welcome to SudokuSolver app!" 
-               HorizontalOptions="Center"
-               Margin="30"
-               HeightRequest="30" />
-
-    <Label x:Name="LabelTopicInfo"
-               Text="Topic:" 
-               HorizontalOptions="Center"
-               HeightRequest="30" 
-               FontSize="14" 
-               FontAttributes="Bold" />
-
-    <Label x:Name="LabelTopic"
-               Text="" 
-               HorizontalOptions="Center"
-               HeightRequest="40" />
-
-    <Label x:Name="LabelMsgInfo"
-               Text="Message:" 
-               HorizontalOptions="Center"
-               HeightRequest="30" 
-               FontSize="14" 
-               FontAttributes="Bold" />
-
-    <Label x:Name="LabelMsg"
-               Text="" 
-               HorizontalOptions="Center"
-               HeightRequest="20" />
-
-    <Button Text="Show message"
-                    Clicked="OnShowMsgButtonClicked" />-->
-<!--</StackLayout>-->
-
-<!--<Label Text="Top Left" Grid.Row="0" Grid.Column="1" />
-            <Label Text="Top Right" Grid.Row="0" Grid.Column="2" />
-            <Label Text="Bottom Left" Grid.Row="1" Grid.Column="1" />
-            <Label Text="Bottom Right" Grid.Row="1" Grid.Column="2" />-->
-<!--HorizontalOptions="Center"-->
